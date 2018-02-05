@@ -1,0 +1,36 @@
+{
+  "name": "starter-node",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "author": "GhostxRipper <yann_ams@icloud.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/index.js --watch src --exec babel-node",
+    "build": "rm -rf dist && babel src --out-dir dist",
+    "prestart": "yarn build",
+    "start": "node dist/index.js",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js}": [
+      "prettier --write --no-semi --single-quote --trailing-comma all",
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.39",
+    "@babel/core": "^7.0.0-beta.39",
+    "@babel/node": "^7.0.0-beta.39",
+    "@babel/preset-env": "^7.0.0-beta.39",
+    "babel-eslint": "^8.2.1",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.1.0",
+    "nodemon": "^1.14.12",
+    "prettier": "^1.10.2"
+  }
+}
